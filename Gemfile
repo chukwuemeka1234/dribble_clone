@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # gem 'capistrano-rails', group: :development
-gem 'bulma-rails', '~> 0.9.4'
+gem 'bulma'
 gem 'devise'
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 gem 'simple_form', '~> 5.1'
