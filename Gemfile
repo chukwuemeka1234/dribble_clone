@@ -54,7 +54,7 @@ gem 'gravatar_image_tag', '~> 1.2'
 gem 'acts_as_votable', '~> 0.11.1'
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem 'sassc-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
