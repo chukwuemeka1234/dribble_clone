@@ -12,7 +12,7 @@ class ShotsController < ApplicationController
 
   # GET /shots/new
   def new
-    @shot = Shot.new
+    @shot = current_user.shots.build
   end
 
   # GET /shots/1/edit
@@ -21,14 +21,14 @@ class ShotsController < ApplicationController
 
   # POST /shots or /shots.json
   def create
-    @shot = Shot.new(shot_params)
+    @shot = current_user.shots.build(shot_params)
 
     respond_to do |format|
       if @shot.save
-        format.html { redirect_to shot_url(@shot), notice: "Shot was successfully created." }
+        format.html { redirect_to @shot, notice: "Shot was successfully created." }
         format.json { render :show, status: :created, location: @shot }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @shot.errors, status: :unprocessable_entity }
       end
     end
@@ -38,10 +38,10 @@ class ShotsController < ApplicationController
   def update
     respond_to do |format|
       if @shot.update(shot_params)
-        format.html { redirect_to shot_url(@shot), notice: "Shot was successfully updated." }
+        format.html { redirect_to @shot, notice: "Shot was successfully updated." }
         format.json { render :show, status: :ok, location: @shot }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @shot.errors, status: :unprocessable_entity }
       end
     end
@@ -57,6 +57,22 @@ class ShotsController < ApplicationController
     end
   end
 
+  def like
+    @shot.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
+  def unlike
+    @shot.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.json { render layout:false }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shot
@@ -65,6 +81,6 @@ class ShotsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def shot_params
-      params.require(:shot).permit(:title, :description, :user_id)
+      params.require(:shot).permit(:title, :description, :user_shot)
     end
 end
