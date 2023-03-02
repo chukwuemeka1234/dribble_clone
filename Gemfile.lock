@@ -78,7 +78,8 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    bulma (0.1.0)
+    bulma-rails (0.9.4)
+      sassc (~> 2.0)
     capybara (3.38.0)
       addressable
       matrix
@@ -308,7 +309,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.11.1)
   better_errors (~> 2.9, >= 2.9.1)
   bootsnap
-  bulma
+  bulma-rails (~> 0.9.4)
   capybara
   carrierwave (>= 3.0.0.beta, < 4.0)
   debug
