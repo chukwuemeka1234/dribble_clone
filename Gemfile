@@ -30,6 +30,12 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '~> 4.2'
+
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 5.0'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -54,7 +60,7 @@ gem 'gravatar_image_tag', '~> 1.2'
 gem 'acts_as_votable', '~> 0.11.1'
 
 # Use Sass to process CSS
-gem 'sassc-rails'
+gem 'sass-rails', '~> 6.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
