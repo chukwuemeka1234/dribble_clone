@@ -1,9 +1,10 @@
 class ShotsController < ApplicationController
   before_action :set_shot, only: %i[ show edit update destroy ]
+  before_action :authenticate_user, only: [:edit, :update, :destroy]
 
   # GET /shots or /shots.json
   def index
-    @shots = Shot.all
+    @shots = Shot.all.order('created_at DESC')
   end
 
   # GET /shots/1 or /shots/1.json
